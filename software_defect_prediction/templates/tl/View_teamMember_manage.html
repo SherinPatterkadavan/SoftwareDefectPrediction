@@ -1,0 +1,42 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends  'tl/tlindex.html' %}
+{% block body %}
+<table class="table table-dark table-striped" width="200" border="1">
+  <tr>
+    <td>Member Name </td>
+    <td>Address</td>
+    <td>Phone No </td>
+    <td>E-mail</td>
+    <td>&nbsp;</td>
+  </tr>
+    {% for i in val %}
+  <tr>
+    <td>&nbsp;{{i.name }}</td>
+    <td>{{ i.place}}</td>
+    <td>{{ i.phone_no }}</td>
+    <td>{{ i.email }}</td>
+    <td><p><a href="edit_tm/{{ i.id }}" class="btn btn-primary">Edit</a></p>
+    <p><a href="delete_tm/{{ i.id }}" class="btn btn-danger">Delete</a></p></td>
+  </tr>
+    {% endfor %}
+  <tr>
+    <td colspan="5"><form id="form3" name="form3" method="post" action="add_tm1">
+      <label>
+      <div align="center">
+        <input type="submit" name="Submit" value="Add New"  class="btn btn-success"/>
+      </div>
+      </label>
+    </form>    </td>
+  </tr>
+</table>
+
+{#</body>#}
+{#</html>#}
+{% endblock %}

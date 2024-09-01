@@ -1,0 +1,49 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'hr/hrindex.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="work_assign_to_tl_search">
+  <table class="table table-dark table-striped" width="200" border="1">
+    <tr>
+      <td>Search by TL Name</td>
+      <td><label>
+        <input type="text" name="textfield"/>
+      </label></td>
+      <td colspan="6"><label>
+        <input type="submit" name="Submit" value="Search" class="btn btn-primary" />
+      </label></td>
+    </tr>
+    <tr>
+        <td>HR</td>
+      <td>Team Leader</td>
+      <td>Work assigned </td>
+        <td>description</td>
+      <td>Date</td>
+      <td>Deadline</td>
+        <td></td>
+
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.HR.name }}</td>
+      <td>&nbsp;{{ i.TL.name }}</td>
+      <td>&nbsp;{{ i.work_name}}</td>
+      <td>&nbsp;{{ i.description }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+        <td>{{i.deadline }}</td>
+        <td><a href="/delete_work/{{ i.id }}" class="btn btn-danger">Delete</a></td>
+    </tr>
+
+      {% endfor %}
+  <tr> <td colspan="7"><div align="center"><a href="addwork" class="btn btn-success">Add New</a></div></td></tr>
+  </table>
+</form>
+{#</body>#}
+{#</html>#}
+{% endblock %}

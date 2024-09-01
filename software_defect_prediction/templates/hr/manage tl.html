@@ -1,0 +1,41 @@
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'hr/hrindex.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="manage_tl_search">
+  <table class="table table-dark table-striped" width="200" border="1">
+    <tr>
+      <td>Name</td>
+      <td colspan="3"><input type="text" name="textfield" value="{{ search }}" /></td>
+      <td><input type="submit" name="Submit" value="Search" class="btn btn-primary"/></td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>Address</td>
+      <td>Phoneno</td>
+      <td>Email</td>
+      <td>&nbsp;</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ i.name }}</td>
+      <td>&nbsp;{{ i.place }},{{ i.post }},{{ i.pin }}</td>
+      <td>&nbsp;{{ i.phone_no }}</td>
+      <td>{{ i.email }}</td>
+      <td><p><a href="{% url 'edit_tl' id=i.id %}" class="btn btn-primary">Edit</a></p>
+      <p><a href="{% url 'delete_tl' id=i.id %}" class="btn btn-danger">Delete</a></p></td>
+    </tr>
+      {%  endfor %}
+    <tr>
+      <td colspan="5"><div align="center"><a href="add1" class="btn btn-success">Add New</a></div></td>
+    </tr>
+  </table>
+</form>
+{#</body>#}
+{#</html>#}
+{% endblock %}

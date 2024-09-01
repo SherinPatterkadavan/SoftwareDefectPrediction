@@ -1,0 +1,64 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends 'hr/hrindex.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="add_work">
+  <table class="table table-dark table-striped" width="200" border="1">
+
+    <tr>
+      <td>TL</td>
+      <td><label>
+      <select name="select">{% for i in val %}
+          <option value="{{ i.id }}">{{ i.name }}</option>{% endfor %}
+      </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>work assigned</td>
+      <td><label>
+        <input type="text" name="textfield2" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td><label>
+        <input type="text" name="textfield3" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Deadline </td>
+      <td><label>
+        <input type="date" name="textfield4" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td><label>
+        <input type="date" name="textfield5" />
+      </label></td>
+    </tr>
+      <tr>
+      <td>status</td>
+      <td><label>
+        <input type="text" name="textfield6" required/>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Add" class="btn btn-success" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+{#</body>#}
+{#</html>#}
+{% endblock %}

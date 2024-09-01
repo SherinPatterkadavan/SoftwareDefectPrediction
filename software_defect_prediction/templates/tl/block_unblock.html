@@ -1,0 +1,88 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1">
+    <tr>
+      <td>name</td>
+      <td colspan="2"><label>
+        <input type="text" name="textfield" />
+      </label></td>
+      <td colspan="2"><label>
+        <input type="submit" name="Submit" value="Search" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td><div align="center">Address</div></td>
+      <td><div align="center">Phone</div></td>
+      <td><div align="center">E-mail</div></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><p><a href="#">Block</a></p>
+      <p><a href="#">Unblock</a></p></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+-->
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends  'tl/tlindex.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-dark table-striped" width="392" border="1">
+    <tr>
+      <td width="37">Name</td>
+      <td width="144"><label>
+        <input type="text" name="textfield" />
+      </label></td>
+      <td colspan="3"><label>
+        <input type="submit" name="Submit" value="Search" class="btn btn-primary" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>Address</td>
+      <td width="42">Phone no </td>
+      <td width="38">Email</td>
+      <td width="97">&nbsp;</td>
+    </tr>
+
+
+      {% for i in val %}
+  <tr>
+          <td>{{ i.name }}</td>
+          <td>{{ i.place }} {{ i.post }} {{ i.pin }}</td>
+          <td>{{ i.phone_no}}</td>
+          <td>{{ i.email }}</td>
+         {% if i.LOGIN.type == 'TM' %}
+      <td><a href="block_tm/{{ i.LOGIN.id }}" class="btn btn-danger">Block</a></td>
+      {% else %}
+      <td><a href="unblock_tm/{{ i.LOGIN.id }}" class="btn btn-success">Unblock</a></td>
+  {% endif %}
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{#</body>#}
+{#</html>#}
+{% endblock %}

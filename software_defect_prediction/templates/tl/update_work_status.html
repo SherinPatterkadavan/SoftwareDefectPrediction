@@ -1,0 +1,33 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{% extends  'tl/tlindex.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="updateworkstatus">
+  <table class="table table-dark table-striped" width="200" border="1">
+    <tr>
+      <td>Team Member Name </td>
+      <td>Work Assigned </td>
+      <td>Work Status </td>
+{#      <td>Score</td>#}
+      <td>&nbsp;</td>
+    </tr>
+      {%  for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.TM.name }}</td>
+      <td>{{ i.WORK.work_name }}</td>
+{#      <td>&nbsp;{{ i.}}</td>#}
+      <td>{{ i.WORK.status }}</td>
+      <td><a href="/updatework/{{ i.WORK.id }}" class="btn btn-primary">Update</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{#</body>#}
+{#</html>#}
+{% endblock %}
